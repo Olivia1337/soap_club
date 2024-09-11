@@ -1,0 +1,64 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5%;
+  justify-content: center;
+}
+
+.banner_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(199, 202, 202);
+  width: 50%;
+
+  padding-block: 2%;
+}
+
+.banner_container h1 {
+  font-family: Nutgame-Bold;
+  color: rgb(63, 45, 45);
+  font-size: 2.5em;
+  width: 70%;
+  margin: 0px;
+}
+
+.banner_container p {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.5em;
+  color: rgb(63, 45, 45);
+  width: 70%;
+  margin-block: 2rem;
+}
+
+.banner_container button {
+  font-family: Nutgame-Bold;
+  font-size: 1.5em;
+  color: rgb(255, 255, 255);
+  padding-block: 1rem;
+  padding-inline: 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: rgb(63, 45, 45);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.banner_container button:hover {
+  cursor: pointer;
+  background-color: rgb(149, 92, 196);
+}
+
+@media screen and (max-width: 1000px) {
+  .banner {
+    padding-top: 10%;
+  }
+
+  .banner_container {
+    width: 80%;
+
+    padding-block: 5%;
+  }
+}

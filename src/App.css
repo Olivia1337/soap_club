@@ -1,38 +1,32 @@
 .App {
   text-align: center;
+  background-color: rgb(233, 230, 230);
+  margin: 0;
+}
+a {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit the color from the parent element */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Or you can set a specific color for links */
+a {
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: "Rilley";
+  src: url("../src/assets/fonts/Rilley.ttf");
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@font-face {
+  font-family: "DailyShine-Regular";
+  src: url("../src/assets/fonts/DailyShine-Regular.ttf");
 }
-
-.App-link {
-  color: #61dafb;
+@font-face {
+  font-family: "Nutgame-Bold";
+  src: url("../src/assets/fonts/Nutgame-Bold.ttf");
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@font-face {
+  font-family: "Sink";
+  src: url("../src/assets/fonts/Sink.ttf");
 }

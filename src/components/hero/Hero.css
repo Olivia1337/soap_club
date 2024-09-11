@@ -1,0 +1,131 @@
+.hero_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5%;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 10px;
+  width: 50%;
+  min-height: 50vh;
+}
+
+.hero h1 {
+  color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 2em;
+  margin: 0;
+  z-index: 2;
+  letter-spacing: 3px;
+  font-weight: 100;
+}
+
+.hero_soaps {
+  grid-column: 1 / 2;
+  grid-row: 1/3;
+
+  background-image: url("../../assets/images/soaps_01.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero_gift_bags {
+  grid-column: 2 / 3;
+  grid-row: 1/3;
+
+  background-image: url("../../assets/images/gift_bag_01.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero_best_sellers {
+  grid-column: 3 / 4;
+  grid-row: 1;
+  background-color: #ff6f61;
+  background-image: url("../../assets/images/best_sellers_01.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero_new {
+  grid-column: 3 / 3;
+  grid-row: 2;
+  background-image: url("../../assets/images/delivery_01.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero_soaps,
+.hero_gift_bags,
+.hero_best_sellers,
+.hero_new {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-left: 5%;
+  padding-bottom: 3%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero_soaps::after,
+.hero_gift_bags::after,
+.hero_best_sellers::after,
+.hero_new::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Initial semi-transparent overlay */
+  z-index: 1;
+  transition: background 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.hero_soaps:hover::after,
+.hero_gift_bags:hover::after,
+.hero_best_sellers:hover::after,
+.hero_new:hover::after {
+  background: rgba(235, 37, 225, 0);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr;
+    gap: 15px;
+    width: 80%;
+  }
+
+  .hero_soaps {
+    grid-column: 1;
+    grid-row: 1;
+    height: 20vh;
+  }
+
+  .hero_gift_bags {
+    grid-column: 1;
+    grid-row: 2;
+    height: 20vh;
+  }
+
+  .hero_best_sellers {
+    grid-column: 1;
+    grid-row: 3;
+    height: 20vh;
+  }
+
+  .hero_new {
+    grid-column: 1;
+    grid-row: 4;
+    height: 20vh;
+  }
+}

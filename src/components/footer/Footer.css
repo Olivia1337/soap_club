@@ -1,0 +1,101 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(63, 45, 45);
+  padding-block: 1rem;
+  color: white;
+}
+.footer h1 {
+  padding-left: 2%;
+  width: 10%;
+  font-size: 3em;
+  font-family: Nutgame-Bold;
+}
+.footer_nav {
+  padding-right: 2%;
+  width: 10%;
+}
+
+.footer_nav ul {
+  padding: 0;
+  margin: 0;
+}
+
+.footer_nav li {
+  list-style: none;
+  text-align: right;
+  font-family: Nutgame-Bold;
+  font-size: 1.5em;
+  margin-block: 0.5rem;
+  cursor: pointer;
+}
+.footer_nav li:hover {
+  color: rgb(149, 92, 196);
+}
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.newsletter h3 {
+  font-size: 1.5em;
+}
+
+.newsletter h3,
+p {
+  margin: 0;
+}
+
+.newsletter button {
+  font-family: Nutgame-Bold;
+  font-size: 1em;
+  color: rgb(63, 45, 45);
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: rgb(226, 223, 223);
+  cursor: pointer;
+  transition: background-color 0.7s;
+}
+.newsletter button:hover {
+  background-color: rgb(149, 92, 196);
+  color: white;
+}
+
+.newsletter input {
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 1rem;
+}
+
+.details {
+  font-size: 1em;
+  font-style: italic;
+  padding-top: 1rem;
+  color: rgb(134, 128, 128);
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer h1 {
+    padding-left: 0%;
+
+    text-align: center;
+    width: 100%;
+  }
+  .footer_nav ul {
+    padding-block: 2rem;
+  }
+}

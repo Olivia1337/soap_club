@@ -1,0 +1,60 @@
+.featured_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5%;
+}
+.featured {
+  display: grid;
+  width: 50%;
+  color: rgb(255, 255, 255);
+
+  letter-spacing: 1px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 20px;
+}
+
+.featured_card_image {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 25vh;
+  transition: transform 0.5s ease-in-out;
+  overflow: hidden;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+.featured_card_image:hover {
+  cursor: pointer;
+  transform: scale(0.99);
+  overflow: hidden;
+}
+
+.featured_card_image h2,
+h3 {
+  margin: 0px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: white;
+  text-align: center;
+}
+.featured_card_image h2 {
+  font-weight: 100;
+  font-style: italic;
+  padding-top: 3%;
+}
+.featured_card_image h3 {
+  padding-bottom: 2%;
+}
+.featured_container h1 {
+  font-family: Nutgame-Bold;
+  color: rgb(63, 45, 45);
+  font-size: 2.5em;
+  text-align: flex-start;
+  width: 70%;
+}
+
+@media screen and (max-width: 1000px) {
+  .featured {
+    width: 80%;
+  }
+}
