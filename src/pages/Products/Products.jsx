@@ -20,41 +20,59 @@ export default function Products() {
   };
 
   return (
-    <section className="products_container">
-      <h1>All Our Products</h1>
-      <div className="buttons_container">
-        <button
-          className={activeCategory === "all" ? "active" : ""}
-          onClick={() => filterProducts("all")}
-        >
-          All
-        </button>
-        <button
-          className={activeCategory === "soap" ? "active" : ""}
-          onClick={() => filterProducts("soap")}
-        >
-          Soaps
-        </button>
-        <button
-          className={activeCategory === "gift_bags" ? "active" : ""}
-          onClick={() => filterProducts("gift_bags")}
-        >
-          Gift Bags
-        </button>
-      </div>
-      <div className="products_list">
-        {filteredProducts.map((product) => (
-          <Link
-            key={product.id}
-            to={`/product/${product.id}`}
-            className="product_card"
-          >
-            <img src={product.image} alt={product.name} />
-            <h2>{product.name}</h2>
-            <p>${product.price.toFixed(2)}</p>
-          </Link>
-        ))}
-      </div>
-    </section>
+    <main className="products_container">
+      <header>
+        <h1>All Our Products</h1>
+      </header>
+      <nav aria-label="Product categories">
+        <ul className="buttons_container">
+          <li>
+            <button
+              className={activeCategory === "all" ? "active" : ""}
+              onClick={() => filterProducts("all")}
+              aria-current={activeCategory === "all" ? "page" : undefined}
+            >
+              All
+            </button>
+          </li>
+          <li>
+            <button
+              className={activeCategory === "soap" ? "active" : ""}
+              onClick={() => filterProducts("soap")}
+              aria-current={activeCategory === "soap" ? "page" : undefined}
+            >
+              Soaps
+            </button>
+          </li>
+          <li>
+            <button
+              className={activeCategory === "gift_bags" ? "active" : ""}
+              onClick={() => filterProducts("gift_bags")}
+              aria-current={activeCategory === "gift_bags" ? "page" : undefined}
+            >
+              Gift Bags
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <section className="products_list">
+        {filteredProducts.length ? (
+          filteredProducts.map((product) => (
+            <article key={product.id} className="product_card">
+              <Link
+                to={`/product/${product.id}`}
+                aria-label={`View details of ${product.name}`}
+              >
+                <img src={product.image} alt={product.name} />
+                <h2>{product.name}</h2>
+                <p>${product.price.toFixed(2)}</p>
+              </Link>
+            </article>
+          ))
+        ) : (
+          <p>No products found</p>
+        )}
+      </section>
+    </main>
   );
 }

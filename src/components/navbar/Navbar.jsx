@@ -15,7 +15,6 @@ const Navbar = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const [smallScreenMenu, setSmallScreenMenu] = useState(false);
 
-  // Detect cart total update
   useEffect(() => {
     let totalQty = 0;
     let totalAmt = 0;
@@ -29,30 +28,26 @@ const Navbar = () => {
     });
 
     setTotalQuantity(totalQty);
-    setTotalAmount(totalAmt.toFixed(2)); // Ensure two decimal places
+    setTotalAmount(totalAmt.toFixed(2));
   }, [carts]);
 
-  // Toggle the cart visibility
   const handleToggleCart = () => {
     dispatch(toggleCart());
   };
 
-  // Toggle the mobile menu
   const handleMenuClick = () => {
     setSmallScreenMenu(!smallScreenMenu);
   };
 
-  // Close mobile menu on screen resize > 768px
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) {
-        setSmallScreenMenu(false); // Close the mobile menu
+        setSmallScreenMenu(false);
       }
     };
 
     window.addEventListener("resize", handleResize);
 
-    // Cleanup the event listener when the component unmounts
     return () => {
       window.removeEventListener("resize", handleResize);
     };

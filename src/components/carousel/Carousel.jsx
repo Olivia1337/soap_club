@@ -36,7 +36,6 @@ const Carousel = forwardRef((props, ref) => {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
-          width: "100%",
         },
       },
       {
@@ -72,25 +71,33 @@ const Carousel = forwardRef((props, ref) => {
   return (
     <section className="carousel_section" ref={carouselPageRef}>
       <div className="carousel">
-        <div className="carousel_title">
-          <FaAnglesLeft
+        <header className="carousel_header">
+          <button
             onClick={handlePrevClick}
-            cursor={"pointer"}
+            aria-label="Previous slide"
             className="icon"
-          />
-          <h1>{title}</h1>
-          <FaAnglesRight
+          >
+            <FaAnglesLeft />
+          </button>
+          <h2>{title}</h2>
+          <button
             onClick={handleNextClick}
-            cursor={"pointer"}
+            aria-label="Next slide"
             className="icon"
-          />
-        </div>
+          >
+            <FaAnglesRight />
+          </button>
+        </header>
         <Slider {...settings} ref={sliderRef}>
           {newProducts.map((product) => (
             <div className="box" key={product.id}>
-              <Link to={`/product/${product.id}`} className="box_overlay">
-                <h2>"{product.name}"</h2>
-                <h3>{product.price}$</h3>
+              <Link
+                to={`/product/${product.id}`}
+                className="box_overlay"
+                aria-label={`View details for ${product.name}`}
+              >
+                <h3>{product.name}</h3>
+                <p>${product.price.toFixed(2)}</p>
               </Link>
               <img src={product.image} alt={product.name} />
             </div>

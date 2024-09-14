@@ -3,11 +3,15 @@ import "./CardBox.css";
 
 export default function CardBox({ icon: Icon, text, smallText }) {
   return (
-    <div className="container">
-      {Icon && <Icon style={{ fontSize: "3rem", color: "white" }} />}{" "}
+    <div className="container" role="region" aria-labelledby="cardbox-heading">
+      {Icon && (
+        <div className="icon_container">
+          <Icon style={{ fontSize: "3rem", color: "white" }} />
+        </div>
+      )}
       {/* Render the icon if it's provided */}
       <div className="text_container">
-        <p>{smallText}</p>
+        {smallText && <p id="cardbox-heading">{smallText}</p>}
         <h3>{text}</h3>
       </div>
     </div>

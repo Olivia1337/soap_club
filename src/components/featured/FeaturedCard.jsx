@@ -1,9 +1,14 @@
 import React from "react";
 import "./Featured.css";
 import { Link } from "react-router-dom";
+
 const FeaturedCard = ({ price, title, backgroundImage, link }) => {
   return (
-    <Link to={link} className="featured_card_image">
+    <Link
+      to={link}
+      className="featured_card_image"
+      aria-label={`View details for ${title}`}
+    >
       <div
         className="featured_card_image"
         style={{

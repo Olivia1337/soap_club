@@ -27,7 +27,7 @@ function Home() {
   };
 
   return (
-    <div>
+    <main>
       <Hero
         scrollToFeatured={scrollToFeatured}
         scrollToCarousel={scrollToCarousel}
@@ -36,7 +36,7 @@ function Home() {
       <Featured ref={featuredRef} />
       <Banner onExploreClick={goToProducts} />
       <Carousel ref={carouselPageRef} title={"New Products"} />
-    </div>
+    </main>
   );
 }
 

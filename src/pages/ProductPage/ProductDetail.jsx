@@ -1,4 +1,3 @@
-// src/components/ProductDetail/ProductDetail.js
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { products } from "../../assets/products/products";
@@ -12,7 +11,7 @@ import {
 } from "react-icons/fa6";
 import CardBox from "../../components/cardBox/CardBox";
 import Carousel from "../../components/carousel/Carousel";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/stores/cart";
 import { openCart } from "../../redux/stores/sidebar"; // Import openCart action
 
@@ -23,7 +22,7 @@ const ProductDetail = () => {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    dispatch(addToCart({ productId: product.id, quantity: quantity }));
+    dispatch(addToCart({ productId: product.id, quantity }));
     dispatch(openCart()); // Open the cart sidebar when an item is added
   };
 
@@ -35,26 +34,26 @@ const ProductDetail = () => {
     return <div>Product not found</div>;
   }
 
-  const handleIncrease = () => {
-    setQuantity(quantity + 1);
-  };
+  const handleIncrease = () => setQuantity((prev) => prev + 1);
 
   const handleDecrease = () => {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
+      setQuantity((prev) => prev - 1);
     }
   };
 
   const totalPrice = (product.price * quantity).toFixed(2);
 
   return (
-    <section className="product_detail_container">
-      <div className="product_detail">
-        <div className="product_image">
+    <main className="product_detail_container">
+      <article className="product_detail">
+        <header>
           <h1>{product.name}</h1>
-          <div className="image_and_text">
+        </header>
+        <section className="product_image">
+          <figure className="image_and_text">
             <img src={product.image} alt={product.name} />
-            <div className="product_info">
+            <figcaption className="product_info">
               <h2>Price: ${product.price.toFixed(2)}</h2>
               <p className="description">{product.description}</p>
               <p className="additional">
@@ -63,32 +62,37 @@ const ProductDetail = () => {
               <p className="additional">{product.new ? "New in stock" : ""}</p>
               <div className="quantity_container">
                 <p className="quantity_text">Quantity:</p>
-                <FaCircleMinus
-                  size={30}
+                <button
                   onClick={handleDecrease}
-                  style={{ cursor: "pointer" }}
-                />
+                  aria-label="Decrease quantity"
+                  className="quantity_button"
+                >
+                  <FaCircleMinus size={30} />
+                </button>
                 <p className="quantity_text">{quantity}</p>
-                <FaCirclePlus
-                  size={30}
+                <button
                   onClick={handleIncrease}
-                  style={{ cursor: "pointer" }}
-                />
+                  aria-label="Increase quantity"
+                  className="quantity_button"
+                >
+                  <FaCirclePlus size={30} />
+                </button>
               </div>
               <div className="quantity_container_button">
                 <button
                   className="add_to_cart_button"
                   onClick={handleAddToCart}
+                  aria-label="Add to cart"
                 >
                   Add to Cart
                 </button>
                 <p>${totalPrice}</p>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="cardBox_container">
+            </figcaption>
+          </figure>
+        </section>
+      </article>
+      <aside className="cardBox_container">
         <CardBox
           smallText={"All products are"}
           text="100% cruelty-free"
@@ -104,11 +108,11 @@ const ProductDetail = () => {
           text={product.size}
           icon={FaWeightHanging}
         />
-      </div>
-      <div className="carousel_more_container">
+      </aside>
+      <section className="carousel_more_container">
         <Carousel title={"More like this"} />
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 

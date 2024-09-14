@@ -7,15 +7,12 @@ import { changeQuantity } from "../../redux/stores/cart";
 
 export default function CartItem(props) {
   const { productId, quantity } = props.data;
-  const [detail, setDetail] = useState([]);
+  const [detail, setDetail] = useState(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const findDetail = products.filter(
-      (product) => product.id === productId
-    )[0];
+    const findDetail = products.find((product) => product.id === productId);
     setDetail(findDetail);
-    console.log(detail);
   }, [productId]);
 
   const handleMinusQuantity = () => {
@@ -26,6 +23,7 @@ export default function CartItem(props) {
       })
     );
   };
+
   const handleAddQuantity = () => {
     dispatch(
       changeQuantity({
@@ -34,24 +32,29 @@ export default function CartItem(props) {
       })
     );
   };
+
+  if (!detail) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div className="cart_item_container">
-      <img src={detail.image} className="cart_image" />
+    <article className="cart_item_container">
+      <img src={detail.image} alt={detail.name} className="cart_image" />
       <h2 className="cart_title">{detail.name}</h2>
-      <p className="cart_subtitle">${detail.price * quantity}</p>
+      <p className="cart_subtitle">${(detail.price * quantity).toFixed(2)}</p>
       <div className="quantity_container">
-        <FaCircleMinus
-          size={30}
-          style={{ cursor: "pointer" }}
+        <button
+          aria-label="Decrease quantity"
           onClick={handleMinusQuantity}
-        />
+          disabled={quantity <= 1}
+        >
+          <FaCircleMinus size={30} />
+        </button>
         <p className="quantity_text">{quantity}</p>
-        <FaCirclePlus
-          size={30}
-          style={{ cursor: "pointer" }}
-          onClick={handleAddQuantity}
-        />
+        <button aria-label="Increase quantity" onClick={handleAddQuantity}>
+          <FaCirclePlus size={30} />
+        </button>
       </div>
-    </div>
+    </article>
   );
 }
