@@ -37,7 +37,7 @@
 
 @media (max-width: 500px) {
   .container {
-    height: 30vh;
+    height: 20vh;
     padding-inline: 0.2rem;
   }
   .container h3 {

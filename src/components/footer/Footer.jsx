@@ -29,7 +29,7 @@ const Footer = () => {
             Sign Up
           </button>
         </div>
-        <p className="details">Example E-commerce website by Olivia Eriksson</p>
+        <p className="details">Website by Olivia Eriksson</p>
       </div>
 
       <nav className="footer_nav">
@@ -52,13 +52,11 @@ const Footer = () => {
               Products
             </Link>
           </li>
-          <li>
-            <button
-              onClick={() => alert("Contact us feature coming soon")}
-              aria-label="Contact us"
-            >
-              Contact
-            </button>
+          <li
+            onClick={() => alert("Contact us feature coming soon")}
+            aria-label="Contact us"
+          >
+            Contact
           </li>
         </ul>
       </nav>

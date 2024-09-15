@@ -62,21 +62,20 @@ const ProductDetail = () => {
               <p className="additional">{product.new ? "New in stock" : ""}</p>
               <div className="quantity_container">
                 <p className="quantity_text">Quantity:</p>
-                <button
-                  onClick={handleDecrease}
+
+                <FaCircleMinus
+                  size={30}
                   aria-label="Decrease quantity"
-                  className="quantity_button"
-                >
-                  <FaCircleMinus size={30} />
-                </button>
+                  onClick={handleDecrease}
+                />
+
                 <p className="quantity_text">{quantity}</p>
-                <button
-                  onClick={handleIncrease}
+
+                <FaCirclePlus
+                  size={30}
                   aria-label="Increase quantity"
-                  className="quantity_button"
-                >
-                  <FaCirclePlus size={30} />
-                </button>
+                  onClick={handleIncrease}
+                />
               </div>
               <div className="quantity_container_button">
                 <button

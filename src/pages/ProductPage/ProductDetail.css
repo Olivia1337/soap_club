@@ -176,10 +176,7 @@
   .cardBox_container {
     width: 90%;
     gap: 3%;
-  }
-  .carousel_more_container {
-    width: 100%;
-    margin-top: 2%;
+    height: auto;
   }
 }
 @media (max-width: 500px) {
@@ -201,7 +198,11 @@
   }
 
   .cardBox_container {
-    width: 100%;
-    gap: 2%;
+    width: 90%;
+
+    height: auto;
+  }
+  .carousel_more_container {
+    width: 90%;
   }
 }

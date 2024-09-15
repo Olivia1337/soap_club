@@ -43,17 +43,17 @@ export default function CartItem(props) {
       <h2 className="cart_title">{detail.name}</h2>
       <p className="cart_subtitle">${(detail.price * quantity).toFixed(2)}</p>
       <div className="quantity_container">
-        <button
+        <FaCircleMinus
+          size={30}
           aria-label="Decrease quantity"
           onClick={handleMinusQuantity}
-          disabled={quantity <= 1}
-        >
-          <FaCircleMinus size={30} />
-        </button>
+        />
         <p className="quantity_text">{quantity}</p>
-        <button aria-label="Increase quantity" onClick={handleAddQuantity}>
-          <FaCirclePlus size={30} />
-        </button>
+        <FaCirclePlus
+          size={30}
+          aria-label="Increase quantity"
+          onClick={handleAddQuantity}
+        ></FaCirclePlus>
       </div>
     </article>
   );

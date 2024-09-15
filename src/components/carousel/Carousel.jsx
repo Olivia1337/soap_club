@@ -72,21 +72,21 @@ const Carousel = forwardRef((props, ref) => {
     <section className="carousel_section" ref={carouselPageRef}>
       <div className="carousel">
         <header className="carousel_header">
-          <button
-            onClick={handlePrevClick}
-            aria-label="Previous slide"
-            className="icon"
-          >
-            <FaAnglesLeft />
-          </button>
-          <h2>{title}</h2>
-          <button
-            onClick={handleNextClick}
-            aria-label="Next slide"
-            className="icon"
-          >
-            <FaAnglesRight />
-          </button>
+          <div className="buttons_row">
+            <FaAnglesLeft
+              onClick={handlePrevClick}
+              aria-label="Previous slide"
+              size={30}
+            />
+
+            <h2>{title}</h2>
+
+            <FaAnglesRight
+              onClick={handleNextClick}
+              aria-label="next slide"
+              size={30}
+            />
+          </div>
         </header>
         <Slider {...settings} ref={sliderRef}>
           {newProducts.map((product) => (

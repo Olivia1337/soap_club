@@ -8,7 +8,6 @@ const Hero = ({ scrollToFeatured, scrollToCarousel, goToProducts }) => {
         <div
           className="hero_soaps"
           onClick={goToProducts}
-          role="button"
           tabIndex={0}
           aria-label="Go to soaps"
         >
@@ -17,7 +16,6 @@ const Hero = ({ scrollToFeatured, scrollToCarousel, goToProducts }) => {
         <div
           className="hero_gift_bags"
           onClick={goToProducts}
-          role="button"
           tabIndex={0}
           aria-label="Go to gift bags"
         >
@@ -27,7 +25,6 @@ const Hero = ({ scrollToFeatured, scrollToCarousel, goToProducts }) => {
         <div
           className="hero_best_sellers"
           onClick={scrollToFeatured}
-          role="button"
           tabIndex={0}
           aria-label="Scroll to best sellers"
           style={{ cursor: "pointer" }}
@@ -38,7 +35,6 @@ const Hero = ({ scrollToFeatured, scrollToCarousel, goToProducts }) => {
         <div
           className="hero_new"
           onClick={scrollToCarousel}
-          role="button"
           tabIndex={0}
           aria-label="Scroll to new products"
           style={{ cursor: "pointer" }}

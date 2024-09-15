@@ -3,7 +3,7 @@ import "./CardBox.css";
 
 export default function CardBox({ icon: Icon, text, smallText }) {
   return (
-    <div className="container" role="region" aria-labelledby="cardbox-heading">
+    <div className="container">
       {Icon && (
         <div className="icon_container">
           <Icon style={{ fontSize: "3rem", color: "white" }} />
